@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>PE Project </title>
+<style>
+   
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+ 
+    background: #3C5377 url("img/table.jpg");
+    
+}
+.card-deck{
+float : center;
+}
+
+#header{
+border-radius: 8px;
+margin-top: 10px;
+ 
+  margin-right: 150px;
+  margin-left: 288px
+    
+
+}
+
+.card-img-top {
+  
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+/* Float four columns side by side */
+.column {
+	margin : 60px;
+  float: left;
+  width: 40%;
+  padding: 50px 50px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+.button4 {background-color: #e7e7e7; color: black;}
+
+	
+</style>
+</head>
+<body>
+<img id = "header" src = "img/header1.png">
+
+
+<div class="card-deck">
+  <div class="column">
+    
+    <div class="card">
+	<img src="img/B.png" class="card-img-top">
+      <h5 class="card-title">Business Model</h5>
+      <p id="b">B</p>
+      
+    </div>
+  </div>
+  <div class="column">
+    
+    <div class="card">
+	<img src="img/TA.png" class="card-img-top">
+      <h5 class="card-title">Target Audience</h5>
+      <p id="t">T</p>
+      
+    </div>
+  </div>
+  <button class ="button" onClick="refreshPage()" >Try a new pair!</button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--div class="maincontainer">
+
+      <div class="thecard">
+
+        <div class="thefront"><h1>Business Model</h1><p id="b" >front</p></div>
+
+        <div class="theback"><h1>Back of Card</h1><p>Your use of this site is subject to the terms and conditions governing this and all transactions.</p>
+        <button>Submit</button></div>
+
+      </div>
+    </div-->
+
+<script>
+const Business = ['Subscription Box','Pay-as-you-go','Renting','Drop Shipping', 'Augumented Reality', 'Direct Sales', 'Freemium Model', 'customization']
+const Target = ['Interns', 'Music Lovers', 'Dog lovers', 'Cat lovers', 'Foodies', 'Freshers', 'Employers', 'Cab Drivers', ]
+
+const random1 = Math.floor(Math.random() * Business.length);
+//console.log(random1, Business[random1]);
+document.getElementById("b").innerHTML = Business[random1];
+const random2 = Math.floor(Math.random() * Target.length);
+//console.log(random2, Target[random2]);
+document.getElementById("t").innerHTML = Target[random2];
+
+
+function refreshPage(){
+    window.location.reload();
+}
+</script>
+</body>
+</html>
