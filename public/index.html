@@ -1,0 +1,365 @@
+	<!DOCTYPE html>	
+<html lang="en">	
+<head>	
+    <meta charset="utf-8"/>	
+    <!-- Ensure that everything scales appropriately on a mobile device -->	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">	
+    <link rel="icon" href="img/favicon.png" type="image/png">	
+    <link rel="stylesheet" href="css/bootstrap.min.css">	
+	<link rel="stylesheet" href="css/font-awesome.min.css">	
+	<link rel="stylesheet" href="css/magnific-popup.css">	
+	<link rel="stylesheet" href="css/style.css">	
+    <!-- Let's borrow a cool looking Font from Google -->	
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>	
+    <link href="css/styles.css" rel="stylesheet">
+	<style>
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}	
+.center2
+{
+    display: flex ;
+    justify-content: center;
+    /*align-items: center important;
+    
+  margin: 0;
+  position: relative;
+  left: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  */
+  }
+
+  .center3{
+      
+      display: flex ;
+      
+      justify-content: center;
+      
+      /*
+      margin: 0;
+      position : relative;
+      left: 50%;
+      top : 50%;
+      -ms-transform: translateX(-50%);
+  transform: translateY(-50%);
+  */
+  }
+
+  .safeTimer{
+      /*
+      margin : 0;
+      position : relative;
+      left : 50%;
+      transform: translateY(-50%);
+      */
+      display: flex;
+      justify-content: center;
+  }
+  
+   
+   * {
+     box-sizing: border-box;
+   }
+   
+   body {
+     font-family: Arial, Helvetica, sans-serif;
+    
+       background: #3C5377 url("img/BG.png");
+       
+   }
+   .card-deck{
+   float : center;
+   }
+   
+   #header{
+   border-radius: 8px;
+   margin-top: 10px;
+    
+     margin-right: 150px;
+     margin-left: 288px
+       
+   
+   }
+   
+   .card-img-top {
+     
+     border-radius: 4px;
+     padding: 5px;
+     width: 150px;
+   }
+   
+   /* Float four columns side by side */
+   .column {
+       margin : 20px;
+     float: left;
+     /*width: 40%; */
+     padding: 50px 50px;
+   }
+
+   .column1 {
+       margin: 20px;
+       float: right;
+       padding: 50px 50px;
+   }
+   
+   /* Remove extra left and right margins, due to padding in columns */
+   .row {margin: 0 -5px;}
+   
+   /* Clear floats after the columns */
+   .row:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   
+   /* Style the counter cards */
+   .card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+     padding: 16px;
+     text-align: center;
+     background-color: #f1f1f1;
+   }
+   
+   /* Responsive columns - one column layout (vertical) on small screens */
+   @media screen and (max-width: 600px) {
+     .column {
+       width: 100%;
+       display: block;
+       margin-bottom: 20px;
+     }
+   
+   .button4 {background-color: #e7e7e7; color: black;}
+   
+       
+   
+</style>
+</head>
+<body>
+    <div id="gameArea">
+        <!-- This is where the templates defined below will be used -->
+		</div>
+    <script id="home-screen-template" type="text/template">
+        <header class="header_area">
+            <div class="main_menu">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand logo_h" href="index.html"><img src="img/favicon.png" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+							</button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav justify-content-center">
+                                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="howtoplay.html">How to play</a></li>
+                                
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <!-- <li class="nav-item"><a href="login.html" class="primary_btn">Login</a></li> -->
+								 </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!--================Header Menu Area =================-->
+    
+        <!--================Home Banner Area =================-->
+		<br>
+		<br>
+		<br>
+		<section id="banner">
+		<video class="center" autoplay loop muted playsinline width="800" height="400" src="img/banner.mp4"></video><br><br>
+		 <div class="center2">
+                                    
+									<br>
+									<a id="play-home-video" class="video-play-button" >
+<span></span>
+                                    </a>
+                                    </div>
+                                    <div class="center2">
+                                        Start Game
+                                    </div>
+                                
+		</section>
+    </script>
+	 <!-- Main Title Screen that appears when the page loads for the first time -->
+    <script id="intro-screen-template" type="text/template">
+        <div class="titleWrapper">
+            <div class="title">
+                Ready to play?
+		   </div>
+            <div class="buttons">
+                <button id="btnCreateGame" class="btn left">CREATE</button>
+                <button id="btnJoinGame" class="btn right">JOIN</button>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </script>
+    <!-- This screen appears when a user clicks "CREATE" on the Title Screen -->
+    <script id="create-game-template" type="text/template">
+	<div class="createGameWrapper">
+            <div class="info">Share the following code to your teammates!</div>
+            <!--
+            <div class="info">Then click <strong>JOIN</strong> and enter the following Game ID:</div>
+            -->
+            <br>
+            <br>
+            </br>
+            <div id="spanNewGameCode" class="gameId">Error!</div>
+            <div id="playersWaiting"></div>
+    </div>
+    <br>
+    <br>
+    <div class="center3">	
+                <a id="new-match-start" class="video-play-button" >	
+                    <span></span>	
+                </a>	
+    </div>
+    <div class="center3">	
+        START GAME	
+    </div>	
+    	
+        	
+    </script>	
+    <!-- This scrreen appears when a player clicks "JOIN" on the Title Screen -->	
+    <script id="join-game-template" type="text/template">	
+        <div class="joinGameWrapper">	
+            <div class="info">	
+                <label for="inputPlayerName">Your Name:</label>	
+                <input id="inputPlayerName" type="text" />	
+            </div>	
+ <div class="info">	
+                <label for="inputGameId">Game ID:</label>	
+                <input id="inputGameId" type="text"/>	
+            </div>	
+            <div class="info buttons">	
+                <button id="btnStart" class="btn">Start</button>	
+                <div id="playerWaitingMessage"></div>	
+            </div>	
+        </div>	
+    </script>
+    
+    <script id="cardplayers-room" type="text/template">
+        <div class="safeTimer">
+            <h2>StopClock</h2>
+        </div>
+        <div class="safeTimer">
+            
+            <p id="safeTimerDisplay">02:00</p>
+        </div>
+        <div class="card-deck">
+            <div class="column">
+              
+              <div class="card">
+              <img src="img/B.png" class="card-img-top">
+                <h5 class="card-title">Business Model</h5>
+                <p id="b">B</p>
+                
+              </div>
+            </div>
+            <div class="column">
+              
+              <div class="card">
+              <img src="img/TA.png" class="card-img-top">
+                <h5 class="card-title">Target Audience</h5>
+                <p id="t">T</p>
+                
+              </div>
+        </div>
+        <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+	<b>CHAT WINDOW</b>
+	<div id="rooms"></div>
+</div>
+<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+	<div id="conversation"></div>
+	<input id="data1" style="width:200px;" />
+	<input type="button" id="datasend" value="send" />
+</div>   
+    </script>
+
+    <!-- This is the 'Host' screen. It displays the word for each player to match -->	
+    <script id="host-game-template" type="text/template">	
+        <div class="safeTimer">
+            <h2>StopClock</h2>
+        </div>
+        <div class="safeTimer">
+            <p id="TimerDisplay">02:00</p>
+        </div>
+       <!-- <div id="wordArea">	-->
+        <div class="card-deck">
+            <div class="column">
+              
+              <div class="card">
+              <img src="img/B.png" class="card-img-top">
+                <h5 class="card-title">Business Model</h5>
+                <p id="b">B</p>
+                
+              </div>
+            </div>
+            <div class="column1">
+              
+            <div class="card">
+              <img src="img/TA.png" class="card-img-top">
+                <h5 class="card-title">Target Audience</h5>
+                <p id="t">T</p>
+                	
+            </div>
+        </div>
+        <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+	<b>CHAT WINDOW</b>
+	<div id="rooms"></div>
+</div>
+<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+	<div id="conversation"></div>
+	<input id="data1" style="width:200px;" />
+	<input type="button" id="datasend1" value="send" />
+</div> 
+            
+       <!-- </div> 
+            <div id="hostWord">5</div>	
+            <div id="newhostWord"></div>	
+            -->
+            <div class="info buttons">	
+                <button class="btnAnswer" class="btn">Next</button>
+			</div>	
+        	
+        </div>
+        <!--
+        <div id="playerScores">	
+            <div id="player1Score" class="playerScore">	
+                <span class="score">0</span><span class="playerName">Player 1</span>	
+            </div>	
+            <div id="player2Score" class="playerScore">	
+                <span class="playerName">Player 2</span><span class="score">0</span>	
+            </div>	
+        </div>	
+    -->
+    </script>	
+    <!-- JavaScript Libraries -->	
+    <!-- jQuery! -->	
+    <script src="libs/jquery-2.0.2.min.js"></script>	
+    <!-- TextFit resizes text to fill a container.	
+        It's used so the titles and game words fit properly on any size screen.	
+        https://github.com/STRML/textFit   -->	
+    <script src="libs/textFit.min.js"></script>	
+<!-- FastClick is used to eliminate the 300ms delay when clicking items on a mobile device	
+        https://github.com/ftlabs/fastclick -->	
+    <script src="libs/fastclick.js"></script>	
+    <!-- If Socket.IO is used with Express, then the /socket.io/ path will	
+        serve the proper Socket.IO javascript files used by the browser -->	
+    <script src="/socket.io/socket.io.js"></script>	
+    <script src="js/jquery.min.js"></script>	
+	<script src="js/popper.min.js"></script>	
+	<script src="js/bootstrap.min.js"></script>	
+    <!-- app.js is where all the client-side Anagrammatix game logic -->	
+    <script src="app.js"></script>	
+</body>	
+</html>
