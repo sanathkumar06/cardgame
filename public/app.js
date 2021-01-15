@@ -201,7 +201,7 @@ jQuery(function($){
          * *********************************** */
 
         /**
-         * Show the initial Anagrammatix Title Screen
+         * Show the initial  Title Screen
          * (with Start and Join buttons)
          */
 
@@ -220,28 +220,7 @@ jQuery(function($){
         updatechat: function(mess) {
             $('#conversation').append('<b>'+mess.playerName + ':</b> ' + mess.message + '<br>');
         },
-        /*
-        startTimer: function() {
-            var time = 120;
-            var timer = time, minutes, seconds;
-             // your time in seconds here
-            display = document.querySelector('#safeTimerDisplay');
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10)
-                seconds = parseInt(timer % 60, 10);
         
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-        
-                display.textContent = minutes + ":" + seconds;
-        
-                if (--timer < 0) {
-                    timer = 0;
-                    // timer = duration; // uncomment this line to reset timer automatically after reaching 0
-                }
-            }, 1000);
-        },
-        */
 
         
 
@@ -348,14 +327,7 @@ jQuery(function($){
                 // Increment the number of players in the room
                 App.Host.numPlayersInRoom += 1;
 
-                // If two players have joined, start the game!
-                /*
-                if (App.Host.numPlayersInRoom === 2) {
-                    // console.log('Room is full. Almost ready!');
-
-                    // Let the server know that two players are present.
-                    IO.socket.emit('hostRoomFull',App.gameId);
-                }*/
+                
             },
 
             /**
@@ -427,13 +399,7 @@ jQuery(function($){
                 
                 hstartTimer();
                 
-                // Insert the new word into the DOM
-                
-                //$('#hostWord').text(data.word);
-                //App.doTextFit('#hostWord');
-                //$('#newhostWord').text(data.answer);
-                //$('#idk').html('<button/>').addClass('btnAnswer').addClass('btn').val('next') 
-                // Update the data for the current round
+              
                 
             },
 
@@ -442,38 +408,6 @@ jQuery(function($){
              * @param data{{round: *, playerId: *, answer: *, gameId: *}}
              */
             checkAnswer : function(data) {
-                // Verify that the answer clicked is from the current round.
-                // This prevents a 'late entry' from a player whos screen has not
-                // yet updated to the current round.
-                /*
-                if (data.round === App.currentRound){
-
-                    // Get the player's score
-                    var $pScore = $('#' + data.playerId);
-
-                    // Advance player's score if it is correct
-                    if( App.Host.currentCorrectAnswer === data.answer ) {
-                        // Add 5 to the player's score
-                        $pScore.text( +$pScore.text() + 5 );
-
-                        // Advance the round
-                        App.currentRound += 1;
-
-                        // Prepare data to send to the server
-                        var data = {
-                            gameId : App.gameId,
-                            round : App.currentRound
-                        }
-
-                        // Notify the server to start the next round.
-                        IO.socket.emit('hostNextRound',data);
-
-                    } else {
-                        // A wrong answer was submitted, so decrement the player's score.
-                        $pScore.text( +$pScore.text() - 3 );
-                    }
-                }
-                */
                IO.socket.emit('hostNextRound',data);
             },
 
@@ -482,6 +416,7 @@ jQuery(function($){
              * All 10 rounds have played out. End the game.
              * @param data
              */
+            /*
             endGame : function(data) {
                 // Get the data for player 1 from the host screen
                 var $p1 = $('#player1Score');
@@ -547,7 +482,7 @@ jQuery(function($){
             },
 
             /**
-             * The player entered their name and gameId (hopefully)
+             * The player entered their name and gameId 
              * and clicked Start.
              */
             onPlayerStartClick: function() {
@@ -556,7 +491,7 @@ jQuery(function($){
                 // collect data to send to the server
                 var data = {
                     gameId : +($('#inputGameId').val()),
-                    playerName : $('#inputPlayerName').val() || 'anon'
+                    playerName : $('#inputPlayerName').val() || 'player'
                 };
 
                 // Send the gameId and playerName to the server
@@ -682,32 +617,6 @@ jQuery(function($){
                  // your time in seconds here
                 
                 startTimer();
-                
-                //var $list = $('<ul/>').attr('id','ulAnswers');
-                //$list.append($ ('<li/>').text(data.word));
-                //$list.append($ ('<li/>').text(data.answer));
-                /*
-                // Create an unordered list element
-                var $list = $('<ul/>').attr('id','ulAnswers');
-
-                // Insert a list item for each word in the word list
-                // received from the server.
-                $.each(data.list, function(){
-                    $list                                //  <ul> </ul>
-                        .append( $('<li/>')              //  <ul> <li> </li> </ul>
-                            .append( $('<button/>')      //  <ul> <li> <button> </button> </li> </ul>
-                                .addClass('btnAnswer')   //  <ul> <li> <button class='btnAnswer'> </button> </li> </ul>
-                                .addClass('btn')         //  <ul> <li> <button class='btnAnswer'> </button> </li> </ul>
-                                .val(this)               //  <ul> <li> <button class='btnAnswer' value='word'> </button> </li> </ul>
-                                .html(this)              //  <ul> <li> <button class='btnAnswer' value='word'>word</button> </li> </ul>
-                            )
-                        )
-                });
-
-                // Insert the list onto the screen.
-                $('#gameArea').html($list);
-                */
-               //$('#gameArea').html($list);
             },
 
             /**
