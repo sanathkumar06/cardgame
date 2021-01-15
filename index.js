@@ -7,7 +7,6 @@ var path = require('path');
 // Create a new instance of Express
 var app = express();
 
-// Import the Anagrammatix game file.
 var agx = require('./agxgame');
 
 // Create a simple Express application
